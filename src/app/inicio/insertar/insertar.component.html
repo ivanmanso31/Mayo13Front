@@ -1,0 +1,24 @@
+<div>
+    <form [formGroup]="form" #frmVideojuego="ngForm" (ngSubmit)="operar()">
+        @if(edicion){
+            <h1>Modificar</h1>
+            <label for="">Id </label>
+             <input placeholder="Id"  [readOnly]="true"
+             required formControlName="id">
+             <br><br>
+        }@else {
+            <h1>Registro</h1>
+        }
+         <label for="">Nombre </label>
+         <input placeholder="Nombre" required formControlName="nombre">
+         <br><br>
+         <label for="">Genero </label>
+         <input placeholder="genero" required formControlName="genero">
+         <br><br>
+         <label for="">Año de salida </label>
+         <input type="number" required min="1972" max="2024" formControlName="salida">
+         <br><br>       
+         <button type="submit" [disabled]="frmVideojuego.invalid">Aceptar</button>
+         <button type="button" routerLink="">Cancelar</button>
+     </form>
+ </div>

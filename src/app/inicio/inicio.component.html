@@ -1,0 +1,21 @@
+<h1>Lista de videojuegos</h1>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Género</th>
+    <th>Año de salida</th>
+  </tr>
+  @for(elemento of videojuegos;track elemento.id){
+  <tr>
+    <td>{{ elemento.id }}</td>
+    <td>{{ elemento.nombre }}</td>
+    <td>{{ elemento.genero }}</td>
+    <td>{{ elemento.salida }}</td>
+    <td><button type="button" [routerLink]="['actualizar',elemento.id]">Modificar</button></td>
+    <td><button type="button" (click)="eliminar(elemento.id)">Eliminar</button></td>
+  </tr>
+  }
+</table>
+<button routerLink="insertar">Alta de un nuevo producto</button>
+<router-outlet></router-outlet>
